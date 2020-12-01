@@ -1,0 +1,14 @@
+- file: intro
+- part: Brick Data Model
+  chapters:
+    - file: brick/overview
+    - file: brick/concepts
+    - file: brick/relationships
+    - file: brick/timeseries
+    - file: brick/designpatterns
+- part: Brick Model Lifecycle
+  chapters:
+    - file: lifecycle/inference
+- part: Instance Metadata
+  chapters:
+    - file: metadata/tags
