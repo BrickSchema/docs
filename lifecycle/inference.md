@@ -108,3 +108,8 @@ mybldg:vav1 a   brick:VAV ;
 ```
 
 ## Performing Inference
+
+Coming soon!
+
+Resources:
+- [`brickschema` package support](https://brickschema.readthedocs.io/en/latest/quickstart.html)
