@@ -102,6 +102,9 @@ mybldg:t1   a   brick:Air_Temperature_Sensor ;
 *A list of available units can be found [here](http://www.qudt.org/doc/DOC_VOCAB-UNITS.html)*. Given a Brick `Point` instance, it is possible to query for valid potential units. The `?unit` values returned by this query can be associated with a `Point` instance using the `brick:hasUnit` relationship as seen above.
 
 ```sparql
+PREFIX brick: <https://brickschema.org/schema/1.1/Brick#> .
+PREFIX qudt: <http://qudt.org/schema/qudt/> .
+
 SELECT ?unit  WHERE {
     mybldg:t1   brick:measures/qudt:applicableUnit ?unit .
 }

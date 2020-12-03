@@ -11,4 +11,5 @@
     - file: lifecycle/inference
 - part: Instance Metadata
   chapters:
+    - file: metadata/overview
     - file: metadata/tags
