@@ -9,6 +9,7 @@
 - part: Brick Model Lifecycle
   chapters:
     - file: lifecycle/inference
+    - file: lifecycle/validation
 - part: Instance Metadata
   chapters:
     - file: metadata/overview

@@ -121,6 +121,9 @@ SELECT ?entity WHERE {
 }
 ```
 
+## Tag Inference Implementation
+
+Coming soon...
 
 
 ## References
