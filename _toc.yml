@@ -14,3 +14,6 @@
   chapters:
     - file: metadata/overview
     - file: metadata/tags
+- part: Software Support
+  chapters:
+    - file: software/database
