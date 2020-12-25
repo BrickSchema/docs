@@ -36,14 +36,8 @@ Features:
 - **SPARQL support**: RDFlib contains a complete implementation of SPARQL 1.1 (Query and Update).
 - **Reasoning/Inference**: The OWL-RL library supports inference for the RDFS and OWL-RL ontology languages
 - **SHACL support**: pySHACL provides a complete implementation of SHACL and SHACL Advanced Features
-- **Multiple Graphs**: RDFlib can easily support multiple graphs via its incorporation in a larger Python program
-
+- **Multiple Graphs**: RDFlib is Python library, so multiple graphs can always be managed as separate Python objects. RDFlib supports named graphs (all graph objects can have a Named Graph URI); most RDFlib backends allow graph objects to be linked to a Named Graph URI
 - **Scaling and Performance**: scaling of storage can be provided by the different storage backends supported by RDFlib; additional backends can be added easily. RDFlib's implementation of SPARQL and OWL-RL are not heavily optimized so performance can suffer on larger graphs.
-
-```{admonition} TODO
-:class: warning
-Does RDFlib provide an graph management API? Or is it all handled externally through Graph objects?
-```
 
 ### HodDB
 
