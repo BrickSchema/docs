@@ -69,4 +69,15 @@ This is the model of a power sensor which tracks the peak hourly real power.
 .
 ```
 
-This is a little more complex than the earlier example. There are two entity properties associated with the `Power_Sensor` entity. The first is `prop:hasComplexity` which tells us that the sensor measures real power. The second is `prop:aggregate`. The two properties of the `prop:aggregate` value tell us that the sensor's values are aggregated on a 1 hour window (this uses the [ISO 8601 Duration specification](https://en.wikipedia.org/wiki/ISO_8601#Durations), with an `R` prefix to indicate a [repeating duration](https://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals)); this is indicated by the `prop:aggregationInterval` property. The `prop:aggregationFunction` indicates that the values within that 1 hour interval are aggregated to the maximum of the values in that window.
+This is a little more complex than the earlier example. There are two entity properties associated with the `Power_Sensor` entity. The first is `prop:hasComplexity` which tells us that the sensor measures real power. The second is `prop:aggregate`. The two properties of the `prop:aggregate` value tell us that the sensor's values are aggregated on a 1 hour window; this is indicated by the `prop:aggregationInterval` property. The `prop:aggregationFunction` indicates that the values within that 1 hour interval are aggregated to the maximum of the values in that window.
+
+```{note}
+prop:aggregationInterval uses the [ISO 8601 Duration specification](https://en.wikipedia.org/wiki/ISO_8601#Durations) to indicate the length of an interval. It also incorporates an `R` prefix to indicate a [repeating duration](https://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals).
+
+Some common other intervals are:
+- every 1 hour: `RPT1H`
+- every 2 hours: `RPT2H`
+- every 15 minutes: `RPT15M`
+- every month: `RP1M`
+- every 30 days: `RP30D`
+```
