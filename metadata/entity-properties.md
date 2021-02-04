@@ -21,7 +21,10 @@ Entity Properties, and their associated classes and relationships, are defined i
 
 The use of Entity Properties generally adheres to the following pattern:
 
-TODO: put graphic here
+```{image} ../img/entity-property.png
+:width: 600px
+:align: center
+```
 
 ## Simple Example
 
