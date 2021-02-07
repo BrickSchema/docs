@@ -7,7 +7,9 @@ Specifically, this document covers:
 - common design patterns for describing timeseries data with Brick
 - using and verifying units of measure for timeseries data
 
-This document assumes familiarity with the [Relationships documentation](https://brickschema.org/relationships/).
+This document assumes familiarity with the [Relationships documentation](/brick/relationships).
+
+For information on how to link timeseries data in Brick to a database, see the [timeseries storage documentation](metadata/timeseries-storage).
 
 Here is the high-level description of the Brick data model for telemetry. Boxes represent entities; edges represent relationships. Bolded items are defined by the Brick ontology and do not need to be defined in a Brick model for a particular building.
 
