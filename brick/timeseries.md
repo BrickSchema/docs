@@ -28,7 +28,7 @@ Instances of the Brick `Point` class represent sources or sinks of telemetry. Th
 - `Parameter`: represents configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values
 - `Status`: represents the current operating mode, state, position, or condition of an item. Statuses are observations and should be considered 'read-only'
 
-Each of these classes is the root of a class hierarchy of more specific point types. See the [Brick documentation](https://brickschema.org/ontology/1.1/classes/Point) for details. To observe documentation for any Brick class, simply navigate to the Brick class URL in your browser. For example, the Brick class `brick:Air_Temperature_Sensor` is short for [`https://brickschema.org/schema/1.1/Brick#Air_Temperature_Sensor`](https://brickschema.org/schema/1.1/Brick#Air_Temperature_Sensor); navigating to that link will open a web page with the documentation describing that class.
+Each of these classes is the root of a class hierarchy of more specific point types. See the [Brick documentation](https://brickschema.org/ontology/1.1/classes/Point) for details. To observe documentation for any Brick class, simply navigate to the Brick class URL in your browser. For example, the Brick class `brick:Air_Temperature_Sensor` is short for [`https://brickschema.org/schema/Brick#Air_Temperature_Sensor`](https://brickschema.org/schema/Brick#Air_Temperature_Sensor); navigating to that link will open a web page with the documentation describing that class.
 
 ## Point Instances
 
@@ -37,7 +37,7 @@ A single data source --- a particular sensor channel, setpoint, and so on --- is
 The snippet below defines a zone air temperature sensor named `mybldg:t1` in two equivalent ways.
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
@@ -49,7 +49,7 @@ mybldg:t1   a   brick:Air_Temperature_Sensor .
 An instance is commonly related to locations and/or equipment by means of the `brick:isPointOf` relationship, though these annotations are optional:
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
@@ -66,7 +66,7 @@ In addition, we can model the physical location of a data source (such as a sens
 
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
@@ -92,7 +92,7 @@ An important piece of metadata to capture is the units of measure for a particul
 Units of measures are instances of the `qudt:Unit` class, and are represented by URIs such as [`unit:DEG_F`](http://qudt.org/vocab/unit/DEG_F) and [`unit:PPM`](http://qudt.org/vocab/unit/PPM). Units are associated with Brick `Point`s with the `brick:hasUnit` relationship:
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix mybldg: <mybuilding#> .
@@ -104,7 +104,7 @@ mybldg:t1   a   brick:Air_Temperature_Sensor ;
 *A list of available units can be found [here](http://www.qudt.org/doc/DOC_VOCAB-UNITS.html)*. Given a Brick `Point` instance, it is possible to query for valid potential units. The `?unit` values returned by this query can be associated with a `Point` instance using the `brick:hasUnit` relationship as seen above.
 
 ```sparql
-PREFIX brick: <https://brickschema.org/schema/1.1/Brick#> .
+PREFIX brick: <https://brickschema.org/schema/Brick#> .
 PREFIX qudt: <http://qudt.org/schema/qudt/> .
 
 SELECT ?unit  WHERE {

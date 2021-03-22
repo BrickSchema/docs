@@ -33,13 +33,13 @@ You may want to review the section on [Inference](../lifecycle/inference) to und
 
 ## Querying Tags
 
-Tags are instances of the `brick:Tag` class, and are defined as part of the Brick distribution in the `https://brickschema.org/schema/1.1/BrickTag#` namespace (commonly abbreviated as `tag:`).
+Tags are instances of the `brick:Tag` class, and are defined as part of the Brick distribution in the `https://brickschema.org/schema/BrickTag#` namespace (commonly abbreviated as `tag:`).
 The full set of Brick tags can be retrieved with the following SPARQL query:
 
 ```{code-cell} sparql
-PREFIX brick: <https://brickschema.org/schema/1.1/Brick#>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX tag: <https://brickschema.org/schema/1.1/BrickTag#>
+PREFIX tag: <https://brickschema.org/schema/BrickTag#>
 
 SELECT ?tag ?label WHERE {
     ?tag    a          brick:Tag .
@@ -54,9 +54,9 @@ Tags are related to a Brick class via the `brick:hasAssociatedTag` relationship.
 For example, to fetch the tags associated with the `brick:Zone_Air_Temperature_Sensor` class, execute the following query:
 
 ```{code-cell} sparql
-PREFIX brick: <https://brickschema.org/schema/1.1/Brick#>
+PREFIX brick: <https://brickschema.org/schema/Brick#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX tag: <https://brickschema.org/schema/1.1/BrickTag#>
+PREFIX tag: <https://brickschema.org/schema/BrickTag#>
 
 SELECT ?tag WHERE {
     brick:Zone_Air_Temperature_Sensor brick:hasAssociatedTag ?tag
@@ -72,7 +72,7 @@ The set of tags associated with a Brick entity will be the __union__ of the tags
 For example, consider an instance of `brick:Zone_Air_Temperature_Sensor` in a Brick model (before inference is applied):
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
@@ -82,8 +82,8 @@ mybldg:t1   a   brick:Zone_Air_Temperature_Sensor .
 After inference, the model will consist of the following:
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
-@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
@@ -101,9 +101,9 @@ mybldg:t1   a   brick:Zone_Air_Temperature_Sensor,
 To retrieve the set of tags associated with a specific entity, use the following query (remembering to apply inference first):
 
 ```sparql
-PREFIX brick: <https://brickschema.org/schema/1.1/Brick#> .
+PREFIX brick: <https://brickschema.org/schema/Brick#> .
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-PREFIX tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+PREFIX tag: <https://brickschema.org/schema/BrickTag#> .
 
 SELECT ?tag WHERE {
     mybldg:t1   brick:hasTag ?tag
@@ -118,9 +118,9 @@ Memorizing the whole Brick schema is neither tractable nor expected; tags can be
 To find all classes with a given tag (helpful for figuring out which class to use for a new entity), use a variation of the following query (this example finds all classes with the `air` and `temperature` tags):
 
 ```sparql
-PREFIX brick: <https://brickschema.org/schema/1.1/Brick#> .
+PREFIX brick: <https://brickschema.org/schema/Brick#> .
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-PREFIX tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+PREFIX tag: <https://brickschema.org/schema/BrickTag#> .
 
 SELECT ?class WHERE {
     ?class  brick:hasAssociatedTag tag:Air, tag:Temperature .
@@ -130,9 +130,9 @@ SELECT ?class WHERE {
 To find all *instances* with a given tag, remember to apply inference, and then execute a query like:
 
 ```sparql
-PREFIX brick: <https://brickschema.org/schema/1.1/Brick#> .
+PREFIX brick: <https://brickschema.org/schema/Brick#> .
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-PREFIX tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+PREFIX tag: <https://brickschema.org/schema/BrickTag#> .
 
 SELECT ?entity WHERE {
     ?entity  brick:hasTag tag:Air, tag:Temperature .

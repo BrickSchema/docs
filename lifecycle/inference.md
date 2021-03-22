@@ -24,7 +24,7 @@ While using a reasoner is not strictly necessary for effective use of Brick, it 
 Before reasoning:
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
@@ -34,8 +34,8 @@ mybldg:t1   a   brick:Zone_Air_Temperature_Sensor .
 After reasoning:
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
-@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
@@ -54,7 +54,7 @@ mybldg:t1   a   brick:Zone_Air_Temperature_Sensor,
 Before reasoning:
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
@@ -64,8 +64,8 @@ mybldg:t1   a   brick:Zone_Air_Temperature_Sensor .
 After reasoning:
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
-@prefix tag: <https://brickschema.org/schema/1.1/BrickTag#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix tag: <https://brickschema.org/schema/BrickTag#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
@@ -82,7 +82,7 @@ mybldg:t1   a   brick:Zone_Air_Temperature_Sensor,
 Before reasoning:
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
@@ -94,7 +94,7 @@ mybldg:vav1 a   brick:VAV ;
 After reasoning:
 
 ```turtle
-@prefix brick: <https://brickschema.org/schema/1.1/Brick#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix mybldg: <mybuilding#> .
 
