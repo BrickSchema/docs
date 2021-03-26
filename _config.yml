@@ -3,6 +3,7 @@
 
 title: Brick Ontology Documentation
 author: Brick Consortium, Inc.
+copyright: "2020, 2021"
 logo: img/logo.png
 
 # Force re-execution of notebooks on each build.
