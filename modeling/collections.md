@@ -70,9 +70,10 @@ This permits useful discovery queries such as the following: *"What are the cont
 
 ```sparql
 SELECT ?content WHERE {
-    :zone1   brick:isPartOf ?loop .
-    ?loop   a   brick:Air_Loop .
-    ?content    brick:isPartOf ?loop
+    :zone1   brick:isFedBy   ?equip .
+    ?equip   brick:isPartOf  ?loop .
+    ?loop    a               brick:Air_Loop .
+    ?content brick:isPartOf  ?loop
 }
 ```
 
