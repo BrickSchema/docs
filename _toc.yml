@@ -19,3 +19,6 @@
 - part: Software Support
   chapters:
     - file: software/database
+- part: Modeling Common Subsystems
+  chapters:
+    - file: modeling/collections
