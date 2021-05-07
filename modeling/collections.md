@@ -66,14 +66,14 @@ After applying [inference](lifecycle/inference), several new conclusions can be 
 - the mebmers of `:hvac_system` are the members of the loops above as well as the loops themselves
 - *at this time* the zones themselves are not part of the loop **this may change in the future depending on community feedback**
 
-This permits useful discovery queries such as the following: *"What are the contents of the air loop containing Zone 1?*"
+This permits useful discovery queries such as the following: *"What are the contents of the air loop feeding Zone 1?*"
 
 ```sparql
 SELECT ?content WHERE {
-    :zone1   brick:isFedBy   ?equip .
-    ?equip   brick:isPartOf  ?loop .
-    ?loop    a               brick:Air_Loop .
-    ?content brick:isPartOf  ?loop
+    ?content    brick:isPartOf ?loop .
+    ?equip    brick:isPartOf ?loop .
+    ?loop   a   brick:Air_Loop .
+    ?equip    brick:feeds :zone1 .
 }
 ```
 
