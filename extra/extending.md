@@ -13,7 +13,7 @@ Proprietary extensions should be distributed as an independent RDF file (using a
 
 ### Namespace
 
-Proprietary extension classes and relationships should be placed in their own namespace. A namespace is a URI prefix which groups the names of the classes, relationships and definitions in a graph; it does not need to be resolvable. Once published, a namespace should change rarely, if ever. For a hypothetical "Example Corporation" developing its extensions to Brick, possible namespaces might be: `https://example.com/schema/BrickExtension#`, `https://example.com/brick/extension/` and so on. It is helpful, but not strictly necessary, for the namespace to end in a `#` or `/`.
+Proprietary extension classes and relationships should be placed in their own namespace. A namespace is a URI prefix which groups the names of the classes, relationships and definitions in a graph; it does not need to be resolvable, but it is generally best practice if an HTTP GET on the namespace URI returns the definition of the extension [^brick]. Once published, a namespace should change rarely, if ever. For a hypothetical "Example Corporation" developing its extensions to Brick, possible namespaces might be: `https://example.com/schema/BrickExtension#`, `https://example.com/brick/extension/` and so on. It is helpful, but not strictly necessary, for the namespace to end in a `#` or `/`.
 
 ### Adding Classes and Relationships
 
@@ -95,3 +95,14 @@ bldg:ice_machine_1  a   ext:IceMachine ;
 bldg:snow_cone_maker_1  a   ext:SnowConeMaker ;
     brick:hasLocation   bldg:factory .
 ```
+
+
+## Integrating Extensions into Brick
+
+It may come to pass that a proprietary extension is developed and used internally, but then an equivalent classes/relationships are developed in Brick, or the extension is offered for inclusion in a future release of Brick. In these cases, it is likely that there will be "old" models using the extension's version of the class and "new" models using the Brick version of the same class. These two definitions can be reconciled in a few different ways.
+
+1. `<brick class> owl:equivalentClass <proprietary class>`: this statement can be added to the proprietary extension file to mark the two classes as being *equivalent*. After applying a [reasoner](lifecycle/inference), both classes will be assigned to all instances of either class.
+2. `<brick class> rdfs:subClassOf <proprietary class>`: this statement can be added to the proprietary extension file to mark the Brick class as being more specific. This means that instances of the Brick class are *implied* to be instances of the proprietary class, but not vice-versa
+2. `<proprietary class> rdfs:subClassOf <brick class>`: this statement can be added to the proprietary extension file to mark the proprietary class as being more specific. This means that instances of the proprietary class are *implied* to be instances of the Brick class, but not vice-versa
+
+[^brick]: Visiting the Brick namespace in the browser will download the latest release of Brick! Try it: [https://brickschema.org/schema/Brick](https://brickschema.org/schema/Brick)
