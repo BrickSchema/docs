@@ -19,3 +19,6 @@
 - part: Software Support
   chapters:
     - file: software/database
+- part: Extensions and Alignments
+  chapters:
+    - file: extra/extending
