@@ -1,24 +1,26 @@
-- file: intro
-- part: Brick Data Model
+format: jb-book
+root: intro
+parts:
+- caption: Brick Data Model
   chapters:
-    - file: brick/overview
-    - file: brick/concepts
-    - file: brick/relationships
-    - file: brick/timeseries
-    - file: brick/designpatterns
-- part: Brick Model Lifecycle
+  - file: brick/overview
+  - file: brick/concepts
+  - file: brick/relationships
+  - file: brick/timeseries
+  - file: brick/designpatterns
+- caption: Brick Model Lifecycle
   chapters:
-    - file: lifecycle/inference
-    - file: lifecycle/validation
-- part: Instance Metadata
+  - file: lifecycle/inference
+  - file: lifecycle/validation
+- caption: Instance Metadata
   chapters:
-    - file: metadata/overview
-    - file: metadata/tags
-    - file: metadata/entity-properties
-    - file: metadata/timeseries-storage
-- part: Software Support
+  - file: metadata/overview
+  - file: metadata/tags
+  - file: metadata/entity-properties
+  - file: metadata/timeseries-storage
+- caption: Software Support
   chapters:
-    - file: software/database
-- part: Extensions and Alignments
+  - file: software/database
+- caption: Extensions and Alignments
   chapters:
-    - file: extra/extending
+  - file: extra/extending
