@@ -4,17 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-kernelspec:
-  display_name: sparql
-  language: sparql
-  name: sparql
 ---
 
-```{code-cell} sparql
-:tags: [thebe-init,hide-input]
-%endpoint http://pantry.cs.berkeley.edu:5001/sparql
-%display table
-```
 
 Using Tags
 ==========
@@ -36,7 +27,7 @@ You may want to review the section on [Inference](../lifecycle/inference) to und
 Tags are instances of the `brick:Tag` class, and are defined as part of the Brick distribution in the `https://brickschema.org/schema/BrickTag#` namespace (commonly abbreviated as `tag:`).
 The full set of Brick tags can be retrieved with the following SPARQL query:
 
-```{code-cell} sparql
+```sparql
 PREFIX brick: <https://brickschema.org/schema/Brick#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX tag: <https://brickschema.org/schema/BrickTag#>
@@ -53,7 +44,7 @@ Most, if not all, Brick classes have a set of associated tags, which will be "in
 Tags are related to a Brick class via the `brick:hasAssociatedTag` relationship.
 For example, to fetch the tags associated with the `brick:Zone_Air_Temperature_Sensor` class, execute the following query:
 
-```{code-cell} sparql
+```sparql
 PREFIX brick: <https://brickschema.org/schema/Brick#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX tag: <https://brickschema.org/schema/BrickTag#>
