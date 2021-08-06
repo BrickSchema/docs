@@ -28,7 +28,7 @@ Instances of the Brick `Point` class represent sources or sinks of telemetry. Th
 - `Parameter`: represents configuration settings used to guide the operation of equipment and control systems; for example they may provide bounds on valid setpoint values
 - `Status`: represents the current operating mode, state, position, or condition of an item. Statuses are observations and should be considered 'read-only'
 
-Each of these classes is the root of a class hierarchy of more specific point types. See the [Brick documentation](https://brickschema.org/ontology/1.1/classes/Point) for details. To observe documentation for any Brick class, simply navigate to the Brick class URL in your browser. For example, the Brick class `brick:Air_Temperature_Sensor` is short for [`https://brickschema.org/schema/Brick#Air_Temperature_Sensor`](https://brickschema.org/schema/Brick#Air_Temperature_Sensor); navigating to that link will open a web page with the documentation describing that class.
+Each of these classes is the root of a class hierarchy of more specific point types. See the [Brick documentation](https://brickschema.org/ontology/1.2/classes/Point) for details. To observe documentation for any Brick class, simply navigate to the Brick class URL in your browser. For example, the Brick class `brick:Air_Temperature_Sensor` is short for [`https://brickschema.org/schema/Brick#Air_Temperature_Sensor`](https://brickschema.org/schema/Brick#Air_Temperature_Sensor); navigating to that link will open a web page with the documentation describing that class.
 
 ## Point Instances
 
