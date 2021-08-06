@@ -61,8 +61,8 @@ When your *subject* is a...
     - Floor `hasPart` Room
     - HVAC Zone `hasPart` Room
 - **Point**:
-  - `hasLocation` describes where the point is physically located
-    - Sensor `hasLocation` Room
+  - `isPointOf` describes what the data is relevant to
+    - Sensor `isPointOf` Room
 - **Equipment**:
   - `hasPoint` describes telemetry associated with the equipment:
     - VAV `hasPoint` Temperature Sensor
