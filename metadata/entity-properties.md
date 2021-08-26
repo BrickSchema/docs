@@ -46,7 +46,7 @@ To illustrate the use of entity properties, consider the following models
 
 ```turtle
 :room1  a   brick:Room ;
-    brick:hasArea  [
+    brick:area  [
         brick:value  "100"^^xsd:decimal ;
         brick:hasUnit   unit:FT2 ;
     ] ;
@@ -54,18 +54,18 @@ To illustrate the use of entity properties, consider the following models
 ```
 
 ```{note}
-The `[]` square brackets above are a [blank node](https://www.w3.org/2007/02/turtle/primer/) notation. Everything in the `[]` is the predicate and object for an *implied* entity that is also the object of the `brick:hasArea` relationship. You can consider the above equivalent to the following:
+The `[]` square brackets above are a [blank node](https://www.w3.org/2007/02/turtle/primer/) notation. Everything in the `[]` is the predicate and object for an *implied* entity that is also the object of the `brick:area` relationship. You can consider the above equivalent to the following:
 
 
 ```turtle
 :room1  a   brick:Room ;
-        brick:hasArea  :a .
+        brick:area  :a .
         
 :a brick:value  "100"^^xsd:decimal ;
     brick:hasUnit   unit:FT2 .
 ```
 
-The model here is relatively straight forward. The area is a (usually anonymous) Brick entity with a numerical value (indicated by `brick:value`) and a unit (indicated by `brick:hasUnit`). The area entity is associated with a Brick room through the `brick:hasArea` property.
+The model here is relatively straight forward. The area is a (usually anonymous) Brick entity with a numerical value (indicated by `brick:value`) and a unit (indicated by `brick:hasUnit`). The area entity is associated with a Brick room through the `brick:area` property.
 
 ### Peak Hourly Power Meter
 
@@ -78,13 +78,13 @@ This is the model of a power sensor which tracks the peak hourly real power.
         brick:aggregationFunction    "max" ;
         brick:aggregationInterval    "RPT1H" ;
     ] ;
-    brick:hasComplexity [
+    brick:powerComplexity [
         brick:value  "real" ;
     ]
 .
 ```
 
-This is a little more complex than the earlier example. There are two entity properties associated with the `Power_Sensor` entity. The first is `brick:hasComplexity` which tells us that the sensor measures real power. The second is `brick:aggregate`. The two properties of the `brick:aggregate` value tell us that the sensor's values are aggregated on a 1 hour window; this is indicated by the `brick:aggregationInterval` property. The `brick:aggregationFunction` indicates that the values within that 1 hour interval are aggregated to the maximum of the values in that window.
+This is a little more complex than the earlier example. There are two entity properties associated with the `Power_Sensor` entity. The first is `brick:powerComplexity` which tells us that the sensor measures real power. The second is `brick:aggregate`. The two properties of the `brick:aggregate` value tell us that the sensor's values are aggregated on a 1 hour window; this is indicated by the `brick:aggregationInterval` property. The `brick:aggregationFunction` indicates that the values within that 1 hour interval are aggregated to the maximum of the values in that window.
 
 ```{note}
 `brick:aggregationInterval` uses the [ISO 8601 Duration specification](https://en.wikipedia.org/wiki/ISO_8601#Durations) to indicate the length of an interval. It also incorporates an `R` prefix to indicate a [repeating duration](https://en.wikipedia.org/wiki/ISO_8601#Repeating_intervals).
