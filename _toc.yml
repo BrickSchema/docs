@@ -18,6 +18,7 @@ parts:
   - file: metadata/tags
   - file: metadata/entity-properties
   - file: metadata/timeseries-storage
+  - file: metadata/external-representations
 - caption: Software Support
   chapters:
   - file: software/database
