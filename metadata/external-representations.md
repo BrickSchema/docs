@@ -78,7 +78,7 @@ bldg:ts2 a brick:Zone_Air_Temperature_Sensor ;
 
 ## Timeseries
 
-See the [[metadata/timeseries-storage]] section.
+See the [metadata/timeseries-storage](metadata/timeseries-storage) section.
 
 ## Discovering External Representations
 
