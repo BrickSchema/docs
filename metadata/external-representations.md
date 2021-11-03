@@ -55,7 +55,7 @@ Option 2 supports the BACnet URI scheme:
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 bldg:sample-device a bacnet:BACnetDevice ;
-    # normally need rest of address from bacnet-shacl
+    bacnet:device-instance 123 ;
     bacnet:hasPort [ a bacnet:Port ] .
 
 # Option 1: explicit fields
