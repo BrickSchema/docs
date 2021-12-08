@@ -174,6 +174,7 @@ The reconcilation API server linked below will attempt to infer the type of a po
 ### Software
 - [Brick Reconciliation API Server](https://github.com/BrickSchema/reconciliation-api): an implementation of the W3C reconciliation api for use with OpenRefine
 - [OpenRefine](https://openrefine.org/): locally-hosted web-based tool for manipulating mess ydata
+- [point-label-sharing](https://github.com/gtfierro/point-label-sharing): a Python package for extracting point labels from a BACnet network
 
 ### Tutorials
 - [Creating a Brick model with Brick Builder and OpenRefine](https://www.youtube.com/watch?v=LKcXMvrxXzE)
