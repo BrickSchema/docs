@@ -20,8 +20,9 @@ parts:
   - file: metadata/entity-properties
   - file: metadata/timeseries-storage
   - file: metadata/external-representations
-- caption: Software Support
+- caption: Using Brick
   chapters:
+  - file: software/interfaces
   - file: software/database
 - caption: Extensions and Alignments
   chapters:
