@@ -10,6 +10,7 @@ parts:
   - file: brick/designpatterns
 - caption: Brick Model Lifecycle
   chapters:
+  - file: lifecycle/creation
   - file: lifecycle/inference
   - file: lifecycle/validation
 - caption: Instance Metadata
