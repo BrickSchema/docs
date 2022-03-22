@@ -24,6 +24,9 @@ parts:
   chapters:
   - file: software/interfaces
   - file: software/database
+- caption: Modeling Common Subsystems
+  chapters:
+  - file: modeling/collections
 - caption: Extensions and Alignments
   chapters:
   - file: extra/extending
