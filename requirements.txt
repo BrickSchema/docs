@@ -1,4 +1,4 @@
 jupyter-book
 matplotlib
 numpy
-sparqlkernel
+sphinxcontrib-bibtex

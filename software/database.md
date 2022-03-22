@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Database Backends for Brick
 
 In this section, we provide an incomplete list of available commercial and open-source databases which support Brick features.
