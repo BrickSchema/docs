@@ -94,13 +94,13 @@ Metering `brick:Collection`s: useful when the Meter is measuring the consumption
 :pv_generation_system a brick:PV_Generation_System ;
     brick:hasPart :array1 ;
     brick:isMeteredBy :pv_meter .
-site:array1 a brick:PV_Array .
-site:panel11 a brick:PV_Panel ;
-    brick:isPartOf site:array1 ;
+:array1 a brick:PV_Array .
+:panel11 a brick:PV_Panel ;
+    brick:isPartOf :array1 ;
     brick:panelArea [ brick:hasUnit unit:M2 ;
             brick:value "5"^^xsd:double ] .
-site:panel12 a brick:PV_Panel ;
-    brick:isPartOf site:array1 .
+:panel12 a brick:PV_Panel ;
+    brick:isPartOf :array1 .
 :pv_meter   rdf:type/rdfs:subClassOf*   brick:Electrical_Meter .
 ```
 
