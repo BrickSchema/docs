@@ -73,7 +73,7 @@ Metering `brick:Equipment`: useful when the Meter is measuring the consumption/p
 ```ttl
 :chiller-1 a brick:Chiller ;
     brick:isMeteredBy :chiller-meter .
-:chiller-meter a brick:Electric_Meter .
+:chiller-meter rdf:type/rdfs:subClassOf* brick:Electric_Meter .
 ```
 
 Metering `brick:Location`s: useful when the Meter is measuring the consumption/production of many entities within a single location, e.g. a building or floor or room.
@@ -82,7 +82,7 @@ Metering `brick:Location`s: useful when the Meter is measuring the consumption/p
 :floor-1 a brick:Floor ;
     brick:isLocationOf :camera-1, :camera-2 ;
     brick:isMeteredBy :floor-meter .
-:floor-meter a brick:Electric_Meter .
+:floor-meter rdf:type/rdfs:subClassOf* brick:Electric_Meter .
 :camera-1 a brick:Camera .
 :camera-2 a brick:Camera .
 ```
@@ -101,7 +101,7 @@ site:panel11 a brick:PV_Panel ;
             brick:value "5"^^xsd:double ] .
 site:panel12 a brick:PV_Panel ;
     brick:isPartOf site:array1 .
-:pv_meter   a   brick:Electrical_Meter .
+:pv_meter   rdf:type/rdfs:subClassOf*   brick:Electrical_Meter .
 ```
 
 ## Meter Data
