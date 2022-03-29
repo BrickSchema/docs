@@ -18,8 +18,9 @@ This feature is new in Brick v1.3
 ```
 
 Brick provides a basic but flexible model for describing meters, submeter hierarchies, and their relationships to the building.
-Meters are equipment that measure the consumption or production of energy, steam, gas or other "substances" in the building.
-
+Meters are equipment (they are subclasses of the Brick `Equipment` class) that measure the consumption or production of energy, steam, gas or other "substances" in the building.
+The data produced by meters can be found in instances of the Brick `Point` class that are associated with the Meter.
+These include power, energy, water and gas consumption sensors and the like.
 
 ## Meters and Submeters
 
@@ -35,7 +36,7 @@ In fact, meters can *only* be related to each other via these relationships.
 ```
 
 ```{warning}
-Brick does not add any properties to the submeter relationship --- it only indicates that there is one. If this is a problem, [let us know!](https://github.com/BrickSchema/Brick/issues)
+Brick does not describe the nature of the submeter relationship -- only that it exists. If this is a problem, [let us know!](https://github.com/BrickSchema/Brick/issues)
 ```
 
 To ask for the immediate submeters of a particular meter, one can query the model as follows:
@@ -104,9 +105,21 @@ Metering `brick:Collection`s: useful when the Meter is measuring the consumption
 :pv_meter   rdf:type/rdfs:subClassOf*   brick:Electrical_Meter .
 ```
 
+### Querying these patterns
+
+Brick makes it possible to identify all meters associated with any entity in the Brick model:
+
+```sparql
+SELECT ?meter WHERE {
+    ?entity brick:isPartOf*/brick:isMeteredBy ?meter .
+    ?meter rdf:type/rdfs:subClassOf* brick:Meter .
+}
+```
+
 ## Meter Data
 
 Meters can host several points which correspond to the data produced by the meter. These point instances are related to the meter via the `brick:isPointOf` relationship. See [[metadata/entity-properties]] for some examples of how those points can be described.
+(The meter can also be related to the point via the `brick:hasPoint` relationship).
 
 ```ttl
 bldg:building_energy_sensor a brick:Energy_Sensor ;
