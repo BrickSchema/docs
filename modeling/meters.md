@@ -22,6 +22,34 @@ Meters are equipment (they are subclasses of the Brick `Equipment` class) that m
 The data produced by meters can be found in instances of the Brick `Point` class that are associated with the Meter.
 These include power, energy, water and gas consumption sensors and the like.
 
+## Meter Data
+
+Meters can host several points which correspond to the data produced by the meter. These point instances are related to the meter via the `brick:isPointOf` relationship. See [[metadata/entity-properties]] for some examples of how those points can be described.
+(The meter can also be related to the point via the `brick:hasPoint` relationship).
+
+```ttl
+bldg:building_energy_sensor a brick:Energy_Sensor ;
+    brick:hasUnit unit:KiloW-HR ;
+    brick:isPointOf bldg:main-meter ;
+    brick:timeseries [ brick:hasTimeseriesId "a7523b08-7bc7-4a9d-8e88-8c0cd8084be0" ] .
+
+bldg:building_peak_demand a brick:Peak_Power_Demand_Sensor ;
+    brick:aggregate [ brick:aggregationFunction "max" ;
+            brick:aggregationInterval "RP1D" ] ;
+    brick:hasUnit unit:KiloW ;
+    brick:isPointOf bldg:main-meter ;
+    brick:timeseries [ brick:hasTimeseriesId "bcf9a85d-696c-446a-a2ac-97207ecfbc56" ] .
+
+bldg:building_power_sensor a brick:Electric_Power_Sensor ;
+    brick:hasUnit unit:KiloW ;
+    brick:isPointOf bldg:main-meter ;
+    brick:timeseries [ brick:hasTimeseriesId "fd64fbc8-0742-4e1e-8f88-e2cd8a3d78af" ] .
+
+bldg:mybldg a brick:Building ;
+    brick:isMeteredBy bldg:main-meter .
+bldg:main-meter a brick:Building_Electrical_Meter .
+```
+
 ## Meters and Submeters
 
 Meters are instances of the `brick:Meter` class or any of its subclasses.
@@ -116,30 +144,3 @@ SELECT ?meter WHERE {
 }
 ```
 
-## Meter Data
-
-Meters can host several points which correspond to the data produced by the meter. These point instances are related to the meter via the `brick:isPointOf` relationship. See [[metadata/entity-properties]] for some examples of how those points can be described.
-(The meter can also be related to the point via the `brick:hasPoint` relationship).
-
-```ttl
-bldg:building_energy_sensor a brick:Energy_Sensor ;
-    brick:hasUnit unit:KiloW-HR ;
-    brick:isPointOf bldg:main-meter ;
-    brick:timeseries [ brick:hasTimeseriesId "a7523b08-7bc7-4a9d-8e88-8c0cd8084be0" ] .
-
-bldg:building_peak_demand a brick:Peak_Power_Demand_Sensor ;
-    brick:aggregate [ brick:aggregationFunction "max" ;
-            brick:aggregationInterval "RP1D" ] ;
-    brick:hasUnit unit:KiloW ;
-    brick:isPointOf bldg:main-meter ;
-    brick:timeseries [ brick:hasTimeseriesId "bcf9a85d-696c-446a-a2ac-97207ecfbc56" ] .
-
-bldg:building_power_sensor a brick:Electric_Power_Sensor ;
-    brick:hasUnit unit:KiloW ;
-    brick:isPointOf bldg:main-meter ;
-    brick:timeseries [ brick:hasTimeseriesId "fd64fbc8-0742-4e1e-8f88-e2cd8a3d78af" ] .
-
-bldg:mybldg a brick:Building ;
-    brick:isMeteredBy bldg:main-meter .
-bldg:main-meter a brick:Building_Electrical_Meter .
-```
