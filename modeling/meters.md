@@ -121,6 +121,7 @@ SELECT ?meter WHERE {
    ?meter rdf:type/rdfs:subClassOf* brick:Meter .
    FILTER NOT EXISTS { ?meter brick:isVirtualMeter/brick:value true ] }
 }
+```
 
 
 ## Associating Meters
