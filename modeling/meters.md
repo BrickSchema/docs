@@ -93,6 +93,36 @@ SELECT DISTINCT * WHERE {
 }
 ```
 
+### Virtual Meters
+
+It is useful to be able to model "virtual" meters which do not have a physical presence in the building.
+Brick supports modeling "virtual" meters using the `brick:isVirtualMeter` Entity Property.
+This property can only be "true" for instances of `brick:Meter` or subclasses thereof.
+
+```ttl
+:my_virtual_meter a brick:Electrical_Meter ;
+    brick:isVirtualMeter [ brick:value true ] .
+```
+
+By default, virtual meters look exactly like physical meters so no queries need to be changed if you don't care about the distinction between them.
+It is also possible to query *only* virtual meters:
+
+```sparql
+SELECT ?meter WHERE {
+   ?meter rdf:type/rdfs:subClassOf* brick:Meter ;
+          brick:isVirtualMeter/brick:value true .
+}
+```
+
+or to query only meter which are *not* virtual meters
+
+```sparql
+SELECT ?meter WHERE {
+   ?meter rdf:type/rdfs:subClassOf* brick:Meter .
+   FILTER NOT EXISTS { ?meter brick:isVirtualMeter/brick:value true ] }
+}
+
+
 ## Associating Meters
 
 Meters can be associated with the entities that they are metering through the `brick:meters` / `brick:isMeteredBy` relationships. These entities can be instances of `brick:Equipment`, `brick:Location` *or* `brick:Collection`.
