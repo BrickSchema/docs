@@ -27,6 +27,7 @@ parts:
 - caption: Modeling Common Subsystems
   chapters:
   - file: modeling/collections
+  - file: modeling/meters
 - caption: Extensions and Alignments
   chapters:
   - file: extra/extending
