@@ -49,6 +49,7 @@ Option 2 supports the BACnet URI scheme:
 
 ```turtle
 @prefix bldg: <urn:example#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
@@ -61,7 +62,8 @@ bldg:sample-device a bacnet:BACnetDevice ;
 # Option 1: explicit fields
 bldg:ts1 a brick:Zone_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C ;
-    brick:BACnetRepresentation [
+    ref:hasExternalReference [
+        a ref:BACnetReference ;
         bacnet:object-identifier "analog-value,5" ;
         bacnet:object-name "BLDG-Z410-ZATS" ;
         bacnet:objectOf bldg:sample-device ;
@@ -70,7 +72,8 @@ bldg:ts1 a brick:Zone_Air_Temperature_Sensor ;
 # Option 2: BACnet URI
 bldg:ts2 a brick:Zone_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C ;
-    brick:BACnetRepresentation [
+    ref:hasExternalReference [
+        a ref:BACnetReference ;
 		brick:BACnetURI "bacnet://123/analog-input,3/present-value" ;
         bacnet:objectOf bldg:sample-device ;
     ] .
@@ -82,8 +85,8 @@ See the [metadata/timeseries-storage](/metadata/timeseries-storage) section.
 
 ## Discovering External Representations
 
-The `brick:externalRepresentation` relationships can be used to find external representations.
-`brick:externalRepresentation` is a superproperty of `brick:BACnetRepresentation` and `brick:timeseries`, and is inferred automatically through the application of a reasoner.
+The `ref:hasExternalReference` relationships can be used to find external representations.
+Those external references should be annotated with what kind of external reference they are.
 
 Consider the following example:
 
@@ -91,14 +94,16 @@ Consider the following example:
 # example.ttl
 bldg:ts1 a brick:Zone_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C ;
-    brick:BACnetRepresentation [
+    ref:hasExternalReference [
+        a ref:BACnetReference ;
         bacnet:object-identifier "analog-value,5" ;
         bacnet:object-name "BLDG-Z410-ZATS" ;
         bacnet:objectOf bldg:sample-device ;
     ] ;
     brick:timeseries [
-        brick:hasTimeseriesId "756e1623-914f-4415-9000-b1b10ce8f5c9" ;
-        brick:storedAt "postgres://1.2.3.4:5432/mydata" ;
+        a ref:TimeseriesReference ;
+        ref:hasTimeseriesId "756e1623-914f-4415-9000-b1b10ce8f5c9" ;
+        ref:storedAt "postgres://1.2.3.4:5432/mydata" ;
     ] .
 ```
 
@@ -114,7 +119,7 @@ g.load_file("example.ttl")
 g.expand("shacl")
 
 query = """SELECT ?point ?rep ?type WHERE {
-    ?point brick:externalRepresentation ?rep .
+    ?point ref:hasExternalReference ?rep .
     ?rep   a ?type .
 }
 ```
