@@ -20,6 +20,7 @@ This feature is new in Brick v1.3
 Instances of `Point` in Brick are representations of I/O points and data sources and sinks.
 Brick supports relating `Point`s to their representations in external systems, e.g. BACnet networks and timeseries databases.
 This allows software to use a Brick model to configure its access to those other systems.
+These references are encoded using the [`ref-schema`](https://github.com/gtfierro/ref-schema) schema; a copy of the schema is packaged with the Brick ontology.
 
 The generic relationship `ref:hasExternalReference` can be used to find these other references.
 A Brick `Point` can have any number of external references.
