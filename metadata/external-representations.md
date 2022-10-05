@@ -21,20 +21,20 @@ Instances of `Point` in Brick are representations of I/O points and data sources
 Brick supports relating `Point`s to their representations in external systems, e.g. BACnet networks and timeseries databases.
 This allows software to use a Brick model to configure its access to those other systems.
 
-The generic relationship `brick:externalRepresentation` can be used to find these other representations.
-A Brick `Point` can have any number of external representations.
+The generic relationship `ref:hasExternalReference` can be used to find these other references.
+A Brick `Point` can have any number of external references.
 
 Brick currently supports the following external representations:
-- `brick:timeseries`: links a Brick `Point` to its data in a timeseries database
-- `brick:BACnetRepresentation`: links a Brick `Point` to its corresponding BACnet object
+- `ref:TimeseriesReference`: links a Brick `Point` to its data in a timeseries database
+- `ref:BACnetReference`: links a Brick `Point` to its corresponding BACnet object
 
 Examples follow below.
 
 
 ## BACnet
 
-The BACnet representation object is linked to a Brick `Point` with the `brick:BACnetRepresentation` relationship.
-There are two possible forms of the BACnet object:
+The BACnet reference object is linked to a Brick `Point` with the `ref:hasExternalReference` relationship pointing to a `ref:BACnetReference` object.
+There are two possible forms of the BACnet reference object:
 
 Option 1 supports the following fields:
 - `bacnet:object-identifier`: the BACnet object ID: `object-type,object-instance-number`
