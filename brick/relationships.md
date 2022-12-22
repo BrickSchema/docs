@@ -98,7 +98,7 @@ Brick allows many relationships to be defined in two different directions throug
 | `hasPoint`   | `isPointOf` |
 | `hasPart`    | `isPartOf` |
 | `hasLocation`| `isLocationOf` |
-| `hasFeeds`   | `isFedBy` |
+| `feeds`      | `isFedBy` |
 
 In all cases where we have `subject relationship object`, an equvalent statement is `object inverse-relationship subject`.
 
