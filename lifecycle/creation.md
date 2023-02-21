@@ -65,7 +65,7 @@ for floor, room_list in rooms_and_floors.items():
     g.add((BLDG[floor], A, BRICK.Floor))
     for room in room_list:
         g.add((BLDG[room], A, BRICK.Room))
-        g.add((BLDG[room, BRICK.isPartOf, BLDG[floor]))
+        g.add((BLDG[room], BRICK.isPartOf, BLDG[floor]))
 
 # save the file to disk
 g.serialize("my-building.ttl", format="ttl")
