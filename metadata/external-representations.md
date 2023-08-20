@@ -101,7 +101,7 @@ bldg:ts1 a brick:Zone_Air_Temperature_Sensor ;
         bacnet:object-name "BLDG-Z410-ZATS" ;
         bacnet:objectOf bldg:sample-device ;
     ] ;
-    brick:hasTimeseriesReference [
+    ref:hasTimeseriesReference [
         a ref:TimeseriesReference ;
         ref:hasTimeseriesId "756e1623-914f-4415-9000-b1b10ce8f5c9" ;
         ref:storedAt "postgres://1.2.3.4:5432/mydata" ;
