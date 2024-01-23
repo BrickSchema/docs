@@ -29,6 +29,7 @@ parts:
   chapters:
   - file: modeling/collections
   - file: modeling/meters
+  - file: modeling/terminal-units
 - caption: Extensions and Alignments
   chapters:
   - file: extra/extending
