@@ -8,6 +8,7 @@ parts:
   - file: brick/relationships
   - file: brick/timeseries
   - file: brick/designpatterns
+  - file: brick/aliases
 - caption: Brick Model Lifecycle
   chapters:
   - file: lifecycle/creation
