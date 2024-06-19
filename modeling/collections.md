@@ -1,7 +1,10 @@
 Collections, Systems and Loops
 ==============================
 
-A *collection* is a group of related entities, typically organized around a fixed use or function. A collection is modeled as a Brick entity which contains other entities; the relationship between a collection and its contents is `brick:hasPart`. Collections allow a modeler to associate entities together to make them easier to find later. Systems and Loops are special kinds of Collections.
+A *collection* is a group of related entities, typically organized around a fixed use or function.
+
+
+A collection is modeled as a Brick entity which contains other entities; the relationship between a collection and its contents is `brick:hasPart`. Collections allow a modeler to associate entities together to make them easier to find later. Systems and Loops are special kinds of Collections.
 
 Brick defines multiple kinds of collections and allows modelers to create their own.
 

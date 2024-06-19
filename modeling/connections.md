@@ -44,10 +44,25 @@ Though there are many relations to describe different perspectives of a connecti
 
 Note that the `s223:connectedTo` relationship is equivalent to `brick:feeds` because it shows a directional "flow" relationship from one entity to another.
 
+Here is what to remember about modeling connections with 223P.
+Equipment can have `ConnectionPoint`s associated with them, using the `s223:hasConnectionPoint` relationship.
+`ConnectionPoint`s have a direction (`InletConnectionPoint`, `OutletConnectionPoint`) but can also be bidirectional (`BidirectionalConnectionPoint`).
+`ConnectionPoint`s also have a medium associated with them, which is the medium that flows through the connection point.
+
+```{warning}
+The current 223P pre-release has changed the name of Medium instances to use "Fluid" where appropriate.
+Our examples below are temporarily out of date and will be updated soon.
+For example, `s223:Medium-Air` should be `s223:Fluid-Air`.
+```
+
+Any `ConnectionPoint` should be associated with an equipment *and* an instance of `Connection`; there are substance-specific versions here, like `s223:Pipe` (water), `s223:Duct` (air), and `s223:Wire` (electricity).
+The `s223:cnx` relationship is used to connect two `ConnectionPoint`s, and the direction of the connection is inferred from the direction of the `ConnectionPoint`s.
+
 ## Connections on Brick Entities
 
 Brick `Equipment` are now subclasses of `s223:Equipment` in the Brick ontology.
 This means that they can have `ConnectionPoint`s and `Connection`s associated with them.
+
 
 ### Common Connection Constructs
 
