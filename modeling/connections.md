@@ -58,14 +58,19 @@ Here is a model of a Duct between a brick AHU and a brick VAV
 @prefix s223: <http://data.ashrae.org/standard223#> .
 
 # Define the AHU and VAV
-:ahu  a  brick:AHU .
-:vav  a  brick:VAV .
+:ahu  a  brick:AHU ;
+    rdfs:label "AHU" .
+:vav  a  brick:VAV ;
+    rdfs:label "VAV" .
 
 # air flow sensor
-:air_flow_sensor  a  brick:Air_Flow_Sensor .
+:air_flow_sensor  a  brick:Air_Flow_Sensor ;
+    rdfs:label "Air Flow Sensor" .
 
 # Define the duct
 :duct  a  s223:Duct ;
+    rdfs:label "duct" ;
+    s223:hasMedium s223:Medium-Air ;
     brick:hasPoint  :air_flow_sensor ; # put a sensor in the duct!
     s223:connectsFrom  :ahu ;
     s223:connectsTo  :vav .
@@ -77,27 +82,42 @@ We can also augment this model with connection points which are the physical loc
 
 ```turtle
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <urn:duct_example/> .
 
-:saf1  a  brick:Supply_Air_Flow_Sensor .
+<urn:duct_example> a owl:Ontology ;
+    owl:imports <https://brickschema.org/schema/1.4/Brick>,
+                <https://brickschema.org/extension/s223extension> .
+
+:saf1  a  brick:Supply_Air_Flow_Sensor ;
+    rdfs:label "Supply Air Flow Sensor" .
 
 # define the AHU with a air supply connection point
 :ahu  a  brick:AHU ;
+    rdfs:label "AHU" ;
     s223:hasConnectionPoint  :ahu_air_supply .
+
 :ahu_air_supply  a  s223:OutletConnectionPoint ;
+    rdfs:label "AHU air supply" ;
     s223:hasRole s223:Role-Supply ;
     brick:hasPoint :saf1 ; # put the supply air flow sensor at the outlet of the AHU
-    s223:hasMedium s223:Fluid-Air .
+    s223:hasMedium s223:Medium-Air .
 
 # define the VAV with a air inlet connection point
 :vav  a  brick:VAV ;
+    rdfs:label "VAV" ;
     s223:hasConnectionPoint  :vav_air_inlet .
 :vav_air_inlet  a  s223:InletConnectionPoint ;
-    s223:hasMedium s223:Fluid-Air .
+    rdfs:label "VAV air inlet" ;
+    s223:hasMedium s223:Medium-Air .
 
 # now that we have connection points, we can define the duct using s223:cnx,
 # which will infer the rest of the relationship and the correct direction
 # of the connection
 :duct  a  s223:Duct ;
+    rdfs:label "duct" ;
+    s223:hasMedium s223:Medium-Air ;
     s223:cnx  :ahu_air_supply, :vav_air_inlet .
 ```
