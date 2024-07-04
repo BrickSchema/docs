@@ -35,3 +35,4 @@ parts:
 - caption: Extensions and Alignments
   chapters:
   - file: extra/extending
+  - file: extra/brick-rec
