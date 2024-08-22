@@ -15,6 +15,7 @@ parts:
   - file: lifecycle/inference
   - file: lifecycle/validation
   - file: lifecycle/versioning
+  - file: lifecycle/distribution
 - caption: Instance Metadata
   chapters:
   - file: metadata/overview
