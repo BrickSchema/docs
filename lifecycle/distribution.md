@@ -14,7 +14,11 @@ kernelspec:
 Brick Distributions
 ===================
 
-The following distributions are available for the Brick schema:
+```{admonition} Note
+All distributions are available on the [Brick GitHub Releases page](https://github.com/BrickSchema/Brick/releases).
+```
+
+The following distributions are available for the Brick schema on the [Releases](https://github.com/BrickSchema/Brick/releases) page:
 - `Brick+imports.ttl` (recommended for end-applications): contains the Brick and RealEstateCore ontologies, as well as all imports; no other dependencies are required
 - `Brick.ttl` (recommended for platforms): contains the Brick and RealEstateCore ontologies; all other dependencies must be imported or otherwise included
 - `Brick-only.ttl`: contains *only* the Brick ontology; all other dependencies, including RealEstateCore, must be imported or otherwise included
