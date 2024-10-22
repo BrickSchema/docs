@@ -74,7 +74,8 @@ mybldg:tstat1 a   brick:Thermostat ;
 mybldg:t1 brick:isPointOf mybldg:tstat1 .
 ```
 
-In addition, we can model the physical location of a data source (such as a sensor's placement in a room) using the `brick:hasLocation` relationship:
+`Point`s cannot have locations (they are not physical entities), but they can be related to locations through the `brick:isPointOf` relationship.
+We can associate the `Point` with an equipment, and then place the equipment in a location. For example, the following snippet associates a temperature sensor with a thermostat, and then places the thermostat in a room:
 
 
 ```turtle
@@ -83,12 +84,12 @@ In addition, we can model the physical location of a data source (such as a sens
 @prefix mybldg: <mybuilding#> .
 
 mybldg:t1   a   brick:Air_Temperature_Sensor .
+mybldg:tstat1 a   brick:Thermostat ;
+    brick:hasPoint mybldg:t1 .
 
 mybldg:room1 a   brick:Room ;
-    brick:isLocationOf mybldg:t1 .
+    brick:isLocationOf mybldg:tstat1 . # the thermostat, not the sensor!
 
-# instead of the `brick:isLocationOf` line above, we could have written
-mybldg:t1 brick:hasLocation mybldg:room1 .
 ```
 
 An instance can have many other properties attached to it, including units of measure as we will see in the next section.
