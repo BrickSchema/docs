@@ -32,6 +32,7 @@ parts:
   - file: modeling/collections
   - file: modeling/connections
   - file: modeling/meters
+  - file: modeling/point-groups
   - file: modeling/terminal-units
 - caption: Extensions and Alignments
   chapters:
