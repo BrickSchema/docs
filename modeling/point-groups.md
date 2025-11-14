@@ -16,6 +16,8 @@ Point Groups are Brick collections that organize sets of related points (and opt
 Avoid inferring semantics from group membership alone. For example, adding a setpoint and its min/max limits to the same Point Group does *not* mean those limits constrain that setpoint. Model explicit relationships if you need to express functional ties.
 ```
 
+This is *not* a replacement for `brick:hasPoint`! You should still use `brick:hasPoint`/`brick:isPointOf` to relate points to their equipment. This modeling construct focuses on the networking/instrumentation of the system.
+
 ## Modeling Guidelines
 
 - **Scope and intent:** Use Point Groups for display, configuration exchange, and packaging telemetry. They are not a substitute for equipment, loop, or system modeling.
@@ -80,6 +82,5 @@ SELECT DISTINCT ?group WHERE {
 
 ## Migration Notes
 
-- Existing models where controllers hosted individual points should introduce Point Groups and shift the `brick:hosts` relationship to target the group. Equipment such as VAV boxes can continue to reference their points through `brick:hasPoint`.
 - When exporting configuration to external tools, deliver the Point Group identifiers and their member points. Consuming systems that do not yet understand Point Groups can treat them as named collections of points without additional semantics.
 - Future Brick releases may add convenience shapes or inference rules (for example, deriving `brick:hosts` relationships to points). Until then, use property paths (`rec:includes+`) in queries and tooling that need to traverse Point Group hierarchies.
