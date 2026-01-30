@@ -18,6 +18,36 @@ Avoid inferring semantics from group membership alone. For example, adding a set
 
 This is *not* a replacement for `brick:hasPoint`! You should still use `brick:hasPoint`/`brick:isPointOf` to relate points to their equipment. This modeling construct focuses on the networking/instrumentation of the system.
 
+### Examples
+
+A VAV can have a `brick:Supply_Air_Flow_Sensor`, but that point is **hosted** by a controller.
+
+```turtle
+@prefix bldg: <http://example.com/vav#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+
+bldg:VAV_1 a brick:Variable_Air_Volume_Box ;
+    brick:hasPoint bldg:VAV_1_SAF_Sensor .
+
+bldg:Ctrl_1 a brick:Controller ;
+    brick:controls bldg:VAV_1 ;
+    brick:hostsPoint bldg:VAV_1_SAF_Sensor .
+
+bldg:VAV_1_SAF_Sensor a brick:Supply_Air_Flow_Sensor .
+```
+
+A controller can host its own points (e.g., `brick:On_Off_Status`) even when those points describe controller state rather than any downstream equipment.
+```turtle
+@prefix bldg: <http://example.com/controller#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+
+bldg:Ctrl_2 a brick:Controller ;
+    brick:hasPoint bldg:Ctrl_2_On_Off_Status ;
+    brick:hostsPoint bldg:Ctrl_2_On_Off_Status .
+
+bldg:Ctrl_2_On_Off_Status a brick:On_Off_Status .
+```
+
 ## Modeling Guidelines
 
 - **Scope and intent:** Use Point Collections for display, configuration exchange, and packaging telemetry. They are not a substitute for equipment, loop, or system modeling.
