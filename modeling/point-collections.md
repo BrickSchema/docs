@@ -84,4 +84,4 @@ SELECT DISTINCT ?coll WHERE {
 ## Migration Notes
 
 - When exporting configuration to external tools, deliver the Point Collection identifiers and their member points. Consuming systems that do not yet understand Point Collections can treat them as named collections of points without additional semantics.
-- Future Brick releases may add convenience shapes or inference rules (for example, deriving `brick:hosts` relationships to points). Until then, use property paths (`brick:hasPart+`) in queries and tooling that need to traverse Point Collection hierarchies.
+- Future Brick releases may add convenience shapes or inference rules (for example, deriving `brick:hostsPoint` relationships to points). Until then, use property paths (`brick:hasPart+`) in queries and tooling that need to traverse Point Collection hierarchies.
