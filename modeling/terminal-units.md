@@ -26,7 +26,8 @@ This page provides a brief annotated reference model for how to approach modelin
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ref: <https://brickschema.org/schema/brick/ref#> .
-@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+@prefix bacnet: <http://data.ashrae.org/bacnet/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 bldg:VAV1 a brick:Variable_Air_Volume_Box_With_Reheat ;
     rdfs:label "VAV 1" ;
