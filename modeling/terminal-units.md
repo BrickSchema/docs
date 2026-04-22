@@ -36,7 +36,7 @@ bldg:VAV1 a brick:Variable_Air_Volume_Box_With_Reheat ;
 bldg:sat1 a brick:Supply_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_F ;
     ref:hasExternalReference [
-        bacnet:object-identifier "analog-value,5" ;
+        bacnet:object-identifier "analog-value,5"^^bacnet:objectIdentifier ;
         bacnet:object-name "BLDG-Z410-SAT" ;
         bacnet:objectOf bldg:sample-device ;
     ] .
@@ -44,7 +44,7 @@ bldg:sat1 a brick:Supply_Air_Temperature_Sensor ;
 bldg:sp1 a brick:Supply_Air_Temeprature_Setpoint ;
     brick:hasUnit unit:DEG_F ;
     ref:hasExternalReference [
-        bacnet:object-identifier "analog-value,7" ;
+        bacnet:object-identifier "analog-value,7"^^bacnet:objectIdentifier ;
         bacnet:object-name "BLDG-Z410-SAF" ;
         bacnet:objectOf bldg:sample-device ;
     ] .
@@ -52,7 +52,7 @@ bldg:sp1 a brick:Supply_Air_Temeprature_Setpoint ;
 bldg:saf1 a brick:Supply_Air_Flow_Sensor ;
     brick:hasUnit unit:FT3-PER-MIN ;
     ref:hasExternalReference [
-        bacnet:object-identifier "analog-value,6" ;
+        bacnet:object-identifier "analog-value,6"^^bacnet:objectIdentifier ;
         bacnet:object-name "BLDG-Z410-SAF" ;
         bacnet:objectOf bldg:sample-device ;
     ] .
@@ -70,15 +70,21 @@ bldg:sensor_box_1 a brick:Sensor_Equipment ;
 bldg:rmat1 a brick:Room_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_F ;
     ref:hasExternalReference [
-        bacnet:object-identifier "analog-value,8" ;
+        bacnet:object-identifier "analog-value,8"^^bacnet:objectIdentifier ;
         bacnet:object-name "BLDG-Z410-ROOM" ;
         bacnet:objectOf bldg:sample-device ;
     ] .
 
 # BACnet network stuff
-bldg:sample-device a bacnet:BACnetDevice ;
+bldg:sample-device
+    a bacnet:BACnetDevice ;
     bacnet:device-instance 123 ;
-    bacnet:hasPort [ a bacnet:Port ] .
+    bacnet:hasPort [
+        a bacnet:Port ;
+        bacnet:network-type bacnet:NetworkType.ipv4 ;
+        bacnet:ip-address "C0A80164"^^xsd:hexBinary ;        # 192.168.1.100
+        bacnet:ip-default-gateway "C0A80101"^^xsd:hexBinary  # router 192.168.1.1
+    ] .
 ```
 
 The `bldg:VAV1` entity models the RVAV unit itself, along with its associated data streams (`bldg:sat1`, `bldg:saf1`, and `bldg:sp1`) and which zone it is connected to (`bldg:zone1`).

@@ -38,7 +38,7 @@ The BACnet reference object is linked to a Brick `Point` with the `ref:hasExtern
 There are two possible forms of the BACnet reference object:
 
 Option 1 supports the following fields:
-- `bacnet:object-identifier`: the BACnet object ID: `object-type,object-instance-number`
+- `bacnet:object-identifier`: the BACnet object ID: `"object-type,object-instance-number"^^bacnet:objectIdentifier`, e.g. `"device,999"^^bacnet:objectIdentifier`
 - `bacnet:object-name`: the `name` field: the `description` field for the BACnet object
 - `bacnet:object-type`: the BACnet type of the object, e.g. `analog-input`
 - `bacnet:description`: the `description` field for the BACnet object
@@ -49,23 +49,29 @@ Option 2 supports the BACnet URI scheme:
 
 
 ```turtle
-@prefix bldg: <urn:example#> .
+@prefix bldg: <urn:example/> .
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
-@prefix bacnet: <http://data.ashrae.org/bacnet/2020#> .
+@prefix bacnet: <http://data.ashrae.org/bacnet/> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-bldg:sample-device a bacnet:BACnetDevice ;
+bldg:sample-device
+    a bacnet:BACnetDevice ;
     bacnet:device-instance 123 ;
-    bacnet:hasPort [ a bacnet:Port ] .
+    bacnet:hasPort [
+        a bacnet:Port ;
+        bacnet:network-type bacnet:NetworkType.ipv4 ;
+        bacnet:ip-address "C0A80164"^^xsd:hexBinary ;        # 192.168.1.100
+        bacnet:ip-default-gateway "C0A80101"^^xsd:hexBinary  # router 192.168.1.1
+    ] .
 
 # Option 1: explicit fields
 bldg:ts1 a brick:Zone_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C ;
     ref:hasExternalReference [
         a ref:BACnetReference ;
-        bacnet:object-identifier "analog-value,5" ;
+        bacnet:object-identifier "analog-value,5"^^bacnet:objectIdentifier ;
         bacnet:object-name "BLDG-Z410-ZATS" ;
         bacnet:objectOf bldg:sample-device ;
     ] .
@@ -97,7 +103,7 @@ bldg:ts1 a brick:Zone_Air_Temperature_Sensor ;
     brick:hasUnit unit:DEG_C ;
     ref:hasExternalReference [
         a ref:BACnetReference ;
-        bacnet:object-identifier "analog-value,5" ;
+        bacnet:object-identifier "analog-value,5"^^bacnet:objectIdentifier ;
         bacnet:object-name "BLDG-Z410-ZATS" ;
         bacnet:objectOf bldg:sample-device ;
     ] ;

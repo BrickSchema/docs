@@ -67,7 +67,7 @@ In Brick, the graph is represented using the RDF data model. The [RDF primer pag
 
 ## Brick Model 
 
-A **Brick model** is a digital representation of a building that adheres to the Brick schema. Entities in a Brick model are classified according to the classes defined by Brick, and are connected using the relationships defined by Brick. Several reference models are [available for download](/resources/#reference-brick-models).
+A **Brick model** is a digital representation of a building that adheres to the Brick schema. Entities in a Brick model are classified according to the classes defined by Brick, and are connected using the relationships defined by Brick. Several annotated reference models are available in the [Modeling Common Subsystems](/modeling/collections) section.
 
 ![Brick Model Example](../img/brick-model-example.png)
 
