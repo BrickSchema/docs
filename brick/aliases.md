@@ -15,13 +15,13 @@ Aliases and Equivalent Classes
 
 
 ```{note}
-This feature is new in Brick v1.4
+This feature was introduced in Brick v1.4.
 ```
 
 Over its history, Brick has accumulated several duplicate class names. For example: `brick:AHU`, `brick:Air_Handler_Unit` and `brick:Air_Handling_Unit` can all be found in the Brick 1.4 release.
 Brick retains all of these classes for backwards-compatibility; however, in Brick 1.4 it became necessary to denote a *preferred* class among a set of interchangeable classes.
 At the same time, downstream tools and consumers should remain agnostic to whichever class was chosen by a modeler.
-Brick 1.4 handles both of these features through two mechanisms: *equivalent classes* and *aliases*.
+Brick handles both of these features through two mechanisms: *equivalent classes* and *aliases*.
 
 ## Aliases
 

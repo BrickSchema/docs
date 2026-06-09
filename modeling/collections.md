@@ -4,7 +4,7 @@ Collections, Systems and Loops
 A *collection* is a group of related entities, typically organized around a fixed use or function.
 
 
-A collection is modeled as a Brick entity which contains other entities; the relationship between a collection and its contents is `brick:hasPart`. Collections allow a modeler to associate entities together to make them easier to find later. Systems and Loops are special kinds of Collections.
+A collection is modeled as an entity which contains other entities; the relationship between a collection and its contents is `rec:includes`. Collections allow a modeler to associate entities together to make them easier to find later. Systems and Loops are special kinds of Collections.
 
 Brick defines multiple kinds of collections and allows modelers to create their own.
 
@@ -82,16 +82,25 @@ SELECT ?content WHERE {
 
 ## Custom Collections
 
-It is possible for a modeler to create their own ad-hoc collections, depending on how they want to organize entities in the model. The generic `brick:Collection` class is available for this purpose.
-These can be created by instantiating a new entity that is of type `brick:Collection`; it is recommended to use `rdfs:label` to name the collection.
+```{note}
+As of Brick v1.5, custom collections use `rec:Collection` and `rec:includes`. The `brick:Collection` class is deprecated.
+```
+
+It is possible for a modeler to create their own ad-hoc collections, depending on how they want to organize entities in the model. The generic `rec:Collection` class is available for this purpose.
+These can be created by instantiating a new entity that is of type `rec:Collection`; it is recommended to use `rdfs:label` to name the collection.
 
 Using the example of the HVAC system above, one can create a collection containing just the dampers.
 
 ```turtle
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix : <urn:bldg#> .
 
-:my_collection  a   brick:Collection ;
+:my_collection  a   rec:Collection ;
     rdfs:label "All of the dampers" ;
-    brick:hasPart   :dmp1, :dmp2 .
+    rec:includes   :dmp1, :dmp2 .
+```
+
+```{note}
+`brick:Collection` was deprecated in Brick v1.5.0 in favor of `rec:Collection` to remove redundancy between the two ontologies.
 ```

@@ -198,34 +198,9 @@ bldg:RoomAirQualitySetpointPreComfort a brick:CO2_Setpoint ;
 
 The top-level HVAC collection identifies the room automation application. Its point-only subcollections make it easy for tools to retrieve the points for each part of the application.
 
-## Example: Controller-Hosted Points
+## Controllers and Point Collections
 
-Collections do not replace point hosting. A controller should still use `brick:hostsPoint` for the points it exposes, while Point Collections can organize those points for display or configuration.
-
-```turtle
-@prefix bldg: <urn:example/vav#> .
-@prefix brick: <https://brickschema.org/schema/Brick#> .
-@prefix rec: <https://w3id.org/rec#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix unit: <http://qudt.org/vocab/unit/> .
-
-bldg:VAV_1 a brick:Variable_Air_Volume_Box ;
-    brick:hasPoint bldg:VAV_1_SAF_Sensor .
-
-bldg:Ctrl_1 a brick:Controller ;
-    brick:controls bldg:VAV_1 ;
-    brick:hostsPoint bldg:VAV_1_SAF_Sensor .
-
-bldg:VAV_1PointCollection a brick:Point_Collection ;
-    rdfs:label "VAV 1 Point Collection" ;
-    rec:includes bldg:VAV_1_SAF_Sensor .
-
-bldg:VAV_1_SAF_Sensor a brick:Supply_Air_Flow_Sensor ;
-    brick:hasUnit unit:FT3-PER-MIN ;
-    brick:isPointOf bldg:VAV_1 .
-```
-
-One can nest Point Collections to model more complex setups: `brick:Controller` hosts the individual points and the collection organizes them.
+Collections do not replace point hosting. A controller should still use `brick:hosts` for the points it exposes, while Point Collections can organize those points for display or configuration. See [Controllers](controllers) for a full treatment of `brick:controls` and `brick:hosts`.
 
 
 ## Query Patterns

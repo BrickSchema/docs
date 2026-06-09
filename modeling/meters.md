@@ -126,7 +126,7 @@ SELECT ?meter WHERE {
 
 ## Associating Meters
 
-Meters can be associated with the entities that they are metering through the `brick:meters` / `brick:isMeteredBy` relationships. These entities can be instances of `brick:Equipment`, `brick:Location` *or* `brick:Collection`.
+Meters can be associated with the entities that they are metering through the `brick:meters` / `brick:isMeteredBy` relationships. These entities can be instances of `brick:Equipment`, `brick:Location` *or* `rec:Collection`.
 
 Metering `brick:Equipment`: useful when the Meter is measuring the consumption/production of a single Equipment instance.
 
@@ -147,7 +147,7 @@ Metering `brick:Location`s: useful when the Meter is measuring the consumption/p
 :camera-2 a brick:Camera .
 ```
 
-Metering `brick:Collection`s: useful when the Meter is measuring the consumption/production of many entities that are not necessarily grouped by location. Recall that a `brick:Collection` is a named group of entities. This could represent the equipment in a particular air loop, in a particular chilled water system, all of the devices owned by a particular individual, or any other organization.
+Metering `rec:Collection`s: useful when the Meter is measuring the consumption/production of many entities that are not necessarily grouped by location. Recall that a `rec:Collection` is a named group of entities. This could represent the equipment in a particular air loop, in a particular chilled water system, all of the devices owned by a particular individual, or any other organization.
 
 ```ttl
 # pv generation systems and pv_arrays are both collections
