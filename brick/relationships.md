@@ -64,6 +64,18 @@ We list each of the Brick relationships related to each of the modeling perspect
 
 `brick:hasPoint`: the *subject* has a source of telemetry identified by *object*. Generally this means that some aspect of *subject* is measured, controlled, configured or monitored, and the generated telemetry is identified by *object*. The type and definition of *object* dictates what aspect of *subject* is being represented by data.
 
+`brick:hosts`: the *subject* (an ICT Equipment instance) hosts or exposes the *object* (a Point). Use this to describe which network device or controller physically exposes a given data point.
+
+### Control
+
+```{note}
+`brick:controls`, `brick:isControlledBy`, `brick:hosts`, and `brick:isHostedBy` are new in Brick v1.5.
+```
+
+`brick:controls`: the *subject* (a Controller) controls the *object* (Equipment).
+
+`brick:isControlledBy`: inverse of `brick:controls`; the *subject* (Equipment) is controlled by the *object* (a Controller).
+
 ## How and When to Use Brick Relationships
 
 When your *subject* is a...
@@ -88,6 +100,14 @@ When your *subject* is a...
   - `feeds` describes downstream equipment and locations
     - AHU `feeds` VAV
     - VAV `feeds` HVAC Zone
+  - `isControlledBy` describes the controller responsible for the equipment
+    - VAV `isControlledBy` VAV_Controller
+- **ICT Equipment**:
+  - `hosts` describes points exposed by the device
+    - BACnet_Device `hosts` Temperature_Sensor
+- **Controller**:
+  - `controls` describes what equipment the controller manages
+    - VAV_Controller `controls` VAV
 
 ### Quick Note on "Inverse" Relationships
 
@@ -99,6 +119,8 @@ Brick allows many relationships to be defined in two different directions throug
 | `hasPart`    | `isPartOf` |
 | `hasLocation`| `isLocationOf` |
 | `feeds`      | `isFedBy` |
+| `controls`   | `isControlledBy` |
+| `hosts`      | `isHostedBy` |
 
 In all cases where we have `subject relationship object`, an equvalent statement is `object inverse-relationship subject`.
 

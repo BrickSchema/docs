@@ -103,7 +103,7 @@ We can also augment this model with connection points which are the physical loc
 @prefix : <urn:duct_example/> .
 
 <urn:duct_example> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick>,
+    owl:imports <https://brickschema.org/schema/1.5/Brick>,
                 <https://brickschema.org/extension/s223extension> .
 
 :saf1  a  brick:Supply_Air_Flow_Sensor ;
@@ -151,7 +151,7 @@ Notice that we can attach water as well as air connection points to the VAV, and
 
 
 <urn:rvav_example> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick>,
+    owl:imports <https://brickschema.org/schema/1.5/Brick>,
                 <https://brickschema.org/extension/s223extension> .
 
 # define the VAV with air and water connection points

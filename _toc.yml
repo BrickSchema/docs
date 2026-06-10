@@ -31,6 +31,7 @@ parts:
   chapters:
   - file: modeling/collections
   - file: modeling/connections
+  - file: modeling/controllers
   - file: modeling/meters
   - file: modeling/point-collections
   - file: modeling/terminal-units

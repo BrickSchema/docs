@@ -15,7 +15,7 @@ Using Brick and RealEstateCore Together
 ===============
 
 ```{note}
-This feature is new in Brick v1.4 and relies on the integration with RealEstateCore
+Brick-REC integration was introduced in Brick v1.4 and expanded in v1.5.
 ```
 
 This document summarizes the changes to Brick that allow it to be used in conjunction with RealEstateCore  (REC).
@@ -55,3 +55,23 @@ See this table:
 | `brick:isPointOf` | `rec:isPointOf` |
 | `brick:hasPart` | `rec:hasPart` |
 | `brick:isPartOf` | `rec:isPartOf` |
+| `brick:hasPart` (collection membership) | `rec:includes` |
+
+## Collections
+
+```{note}
+This section describes changes introduced in Brick v1.5.
+```
+
+As of Brick v1.5.0, `brick:Collection` has been deprecated in favor of `rec:Collection` to remove redundancy between the two ontologies. Custom collections should now be typed as `rec:Collection` and use `rec:includes` to express membership:
+
+```turtle
+@prefix rec: <https://w3id.org/rec#> .
+@prefix : <urn:bldg#> .
+
+:my_collection a rec:Collection ;
+    rdfs:label "All of the dampers" ;
+    rec:includes :dmp1, :dmp2 .
+```
+
+All built-in Brick collection classes (e.g. `brick:HVAC_System`, `brick:Air_Loop`, `brick:PV_Array`) are now subclasses of `rec:Collection` rather than the deprecated `brick:Collection`.

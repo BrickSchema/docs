@@ -229,10 +229,11 @@ In the Brick model file, `my_building_graph.ttl`, the extension classes and rela
 
 ```turtle
 @prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rec: <https://w3id.org/rec#> .
 @prefix ext: <https://example.com/schema/BrickExtension#> .
 @prefix bldg: <urn:snow_cone_factory#> .
 
-bldg:factory    a   brick:Building ;
+bldg:factory    a   rec:Building ;
     brick:buildingPrimaryFunction [ brick:value "Manufacturing/Industrial Plant" ] .
 
 bldg:ice_machine_1  a   ext:IceMachine ;
